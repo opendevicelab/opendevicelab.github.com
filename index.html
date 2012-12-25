@@ -32,11 +32,37 @@
 			function initialize() {
 		    	var latlng = new google.maps.LatLng(50.949, 6.986);
 		    	var myOptions = {
-		    		zoom: 8,
+		    		zoom: 12,
 		    		center: latlng,
 		    		mapTypeId: google.maps.MapTypeId.ROADMAP
 		    	};
 		    	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		    	var marker = new google.maps.Marker({
+  					position: new google.maps.LatLng(50.94895731663069, 6.986802443861961),
+  					map: map
+					});
+
+		    	var contentString = '<div id="content">'+
+		    	    '<h2 id="firstHeading" class="firstHeading">Railslove GmbH / Coworking Cologne - Gasmotorenfabrik Köln e.V.</h2>'+
+		    	    '<div id="bodyContent">'+
+		    	    '<p><b>KURZINFO</b><br/>'+
+		    	    'Ab sofort könnt Ihr in der Woche jeden Tag von 09 Uhr bis 19 Uhr zum coworken bei uns vorbeikommen. Unsere Tarife: Tagesticket für 12 Euro / 5-Tagesticket für 50 Euro / Monatsticket für 120 Euro. Also, kommt einfach vorbei. No reservation needed. Wir freuen uns auf Euch.</p>'+
+		    	    '<p><b>INFRASTRUKTUR</b><br/>'+
+		    	    'Bei uns findet Ihr die gewohnte CoworkingSpace Ausstattung. Wenn Ihr einen Raum für Besprechungen/Veranstaltungen benötigt, dann einfach mail mit Euren Wünschen an kontakt@cowoco.de schicken.</p>'+
+		    	    '<p><b>ADRESSE</b><br/>'+
+		    	    'Deutz-Mülheimerstraße 129, 51063 Köln</p>'+
+		    	    '<p><a href="http://gasmotorenfabrik.de">'+
+		    	    'LINK ZUR WEBSITE</a></p>'+
+		    	    '</div>'+
+		    	    '</div>';
+
+		    	var infowindow = new google.maps.InfoWindow({
+		    	    content: contentString
+		    	});
+
+		    	google.maps.event.addListener(marker, 'click', function() {
+		    	  infowindow.open(map,marker);
+		    	});		    								    	
 		  	}
 		</script>
 	</head>
@@ -46,34 +72,24 @@
 				<nav>
 					<ul>
 						<li>
-							<a href="#" title="E-Mail">
+							<a href="mailto:opendevicelab@railslove.com" title="E-Mail">
 								<img src="images/email.png" alt="E-Mail" />
 							</a>
 						</li>
 						<li>
-							<a href="#" title="Facebook">
+							<a href="http://www.facebook.com/OpenDeviceLabCologne" title="Open Device Lab on Facebook">
 								<img src="images/facebook.png" alt="Facebook" />
 							</a>
 						</li>
 						<li>
-							<a href="#" title="Google+">
-								<img src="images/googleplus.png" alt="Google+" />
-							</a>
-						</li>
-						<li>
-							<a href="#" title="Twitter">
+							<a href="http://twitter.com/odl_cgn" title="Open Device Lab on Twitter">
 								<img src="images/twitter.png" alt="Twitter" />
-							</a>
-						</li>
-						<li>
-							<a href="#" title="RSS-Feed">
-								<img src="images/rss.png" alt="RSS-Feed" />
 							</a>
 						</li>
 					</ul>
 				</nav>
 				<h1>Open Device Lab Cologne</h1>
-				<h2>Test on 102 Mobile Devices, for free!</h2>
+				<h2>Test your app on mobile devices, for free!</h2>
 			</header>
 			<section id="content">
 				<header id="about">
@@ -88,7 +104,7 @@
 						<li>
 							<h1>Open Device Lab Cologne</h1>
 							<p>
-								Das Open Device Lab Cologne wird von xxx betrieben und du findest uns an vielen Stellen K&ouml;lns.
+								Das Open Device Lab Cologne wird von verschiedenen Kölner Firmen betrieben und du findest uns an vielen Stellen K&ouml;lns.
 								Auf dieser Seite findest du eine Liste der zur Verf&uuml;gung stehenden Ger&auml;te und den Weg zu uns!
 							</p>
 						</li>
@@ -96,8 +112,9 @@
 							<h1>Mitmachen!</h1>
 							<p>
 								Von der Community, f&uuml;r die Community! <br />
-								Wir sind für jedes Testger&auml;t dankbar!
-								<a href="#" title="Donate a Device">Donate a Device</a>
+								Wir sind für jedes Testger&auml;t dankbar! 
+								Standort Betreiber? Gib uns bescheid wir kümmern uns ums Gerätesharing!
+								<a href="mailto:opendevicelab@railslove.com" title="Donate a Device">Donate a Device</a>
 							</p>
 						</li>
 					</ul>
@@ -111,64 +128,33 @@
 								<th>OS / Version</th>
 								<th>Contributor</th>
 								<th>Standort</th>
+								<th>verfügbar</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr class="odd">
 								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
+								<td>iPad 2</td>
+								<td>iOS 6.0 (10A403)</td>
+								<td><a href="http://jankus.name" title="Jan Kus">Jan Kus</a></td>
+								<td><a href="http://railslove.com" title="Railslove GmbH">Railslove GmbH</a></td>
+								<td>auf Anfrage (Privatgerät)</td>
 							</tr>
 							<tr class="even">
-								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
+								<td>Samsung</td>
+								<td>Galaxy Nexus</td>
+								<td>Android 4.2.1 (<em>Kernel</em>: 3.0.31-gd5a18e0, <em>Build number</em>: JOP40D)</td>
+								<td><a href="http://railslove.com" title="Railslove GmbH">Railslove GmbH</a></td>
+								<td><a href="http://railslove.com" title="Railslove GmbH">Railslove GmbH</a></td>
+								<td>auf Anfrage (Privatgerät)</td>
 							</tr>
 							<tr class="odd">
-								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
-							</tr>
-							<tr class="even">
-								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
-							</tr>
-							<tr class="odd">
-								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
-							</tr>
-							<tr class="even">
-								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
-							</tr>
-							<tr class="odd">
-								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
-							</tr>
-							<tr  class="even">
-								<td>Apple</td>
-								<td>iPhone 3 GS</td>
-								<td>iOS 6</td>
-								<td><a href="#" title="Liane Thönnes">Liane Th&ouml;nnes</a></td>
-								<td><a href="#" title="Railslove GmbH">Railslove GmbH</a></td>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
 							</tr>
 						</tbody>
 					</table>
@@ -180,60 +166,12 @@
 				<footer id="firmen">
 					<ul>
 						<li>
-							<strong>Railslove GmbH</strong><br />
+							<strong>Railslove GmbH / Gasmotorenfabrik Köln e.V.</strong><br />
 							Deutz M&uuml;hlheimer Straße 129<br />
 							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
-						</li>
-						<li>
-							<strong>Railslove GmbH</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
-						</li>
-						<li>
-							<strong>Railslove GmbH</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
-						</li>
-						<li>
-							<strong>Railslove GmbH</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
-						</li>
-						<li>
-							<strong>Railslove GmbH</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
-						</li>
-						<li>
-							<strong>Railslove GmbH</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
-						</li>
-						<li>
-							<strong>Railslove GmbH</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
-						</li>
-						<li>
-							<strong>Railslove GmbH</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							www.railslove.com<br />
-							team@railslove.com
+							<a href="http://www.railslove.com">www.railslove.com</a><br />
+							<a href="http://www.gasmotorenfabrik.de">www.gasmotorenfabrik.de</a><br />							
+							<a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a>
 						</li>
 					</ul>
 				</footer>
