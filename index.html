@@ -28,21 +28,11 @@
 		});
 		</script>
 		<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+		<script src="js/infobox.js"></script>
 		<script>
 			function initialize() {
-		    	var latlng = new google.maps.LatLng(50.949, 6.986);
-		    	var myOptions = {
-		    		zoom: 12,
-		    		center: latlng,
-		    		mapTypeId: google.maps.MapTypeId.ROADMAP
-		    	};
-		    	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-		    	var marker = new google.maps.Marker({
-  					position: new google.maps.LatLng(50.94895731663069, 6.986802443861961),
-  					map: map
-					});
 
-		    	var contentString = '<div id="content">'+
+		    	/*var contentString = '<div id="content">'+
 		    	    '<h2 id="firstHeading" class="firstHeading">Railslove GmbH / Coworking Cologne - Gasmotorenfabrik Köln e.V.</h2>'+
 		    	    '<div id="bodyContent">'+
 		    	    '<p><b>KURZINFO</b><br/>'+
@@ -54,15 +44,65 @@
 		    	    '<p><a href="http://gasmotorenfabrik.de">'+
 		    	    'LINK ZUR WEBSITE</a></p>'+
 		    	    '</div>'+
-		    	    '</div>';
+		    	    '</div>';*/
+		    	 
+		    	var contentString = '<p>Railslove GmbH<br />Deutz-Mülheimerstraße 129<br /> 51063 Köln<br /><br /><a href="http://gasmotorenfabrik.de">LINK ZUR WEBSITE</a></p>' + 
+		    		'<img src="images/infoWindowImage.png" alt="Image" align="left" class="infoBoxIcon"/>'
+		    	    
+		    	var secheltLoc = new google.maps.LatLng(50.94895731663069, 6.986802443861961);
+				var myMapOptions = {
+					 zoom: 12
+					,center: secheltLoc
+					,mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				var theMap = new google.maps.Map(document.getElementById("map_canvas"), myMapOptions);
+		
+		       var marker = new google.maps.Marker({
+		         map: theMap,
+		         draggable: false,
+		         position: new google.maps.LatLng(50.94895731663069, 6.986802443861961),
+		         visible: true
+		        });
+		                
+		        var boxText = document.createElement("div");
+		        boxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
+				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
+				'background: -moz-linear-gradient(top,  rgba(40,40,40,0.9) 0%, rgba(0,0,0,0.9) 100%);' +
+				'background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40,40,40,0.8)), color-stop(100%,rgba(0,0,0,0.9)));' +
+				'background: -webkit-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: -o-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: -ms-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: linear-gradient(to bottom,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#cc282828\', endColorstr=\'#cc000000\',GradientType=0 );' +
 
-		    	var infowindow = new google.maps.InfoWindow({
-		    	    content: contentString
-		    	});
+				'border-radius: 5px;' + 
+				'border: 1px solid #000000;';
 
-		    	google.maps.event.addListener(marker, 'click', function() {
-		    	  infowindow.open(map,marker);
-		    	});		    								    	
+		        boxText.innerHTML = contentString;
+		                
+		        var myOptions = {
+		                 content: boxText
+		                ,disableAutoPan: false
+		                ,maxWidth: 0
+		                ,pixelOffset: new google.maps.Size(-140, 0)
+		                ,zIndex: null
+		                ,boxStyle: {
+		                	width: "340px"
+		                 }
+		                ,closeBoxMargin: "10px 2px 2px 2px"
+		                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+		                ,infoBoxClearance: new google.maps.Size(1, 1)
+		                ,isHidden: false
+		                ,pane: "floatPane"
+		                ,enableEventPropagation: false
+		        };
+		
+		        var ib = new InfoBox(myOptions);
+		        
+
+				google.maps.event.addListener(marker, 'click', function() {
+				  ib.open(theMap,marker);
+				});
 		  	}
 		</script>
 	</head>
