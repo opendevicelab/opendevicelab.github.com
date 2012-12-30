@@ -17,6 +17,13 @@ body {
 
 /** layout styling **/
 
+#marker {
+	background-color: #000000;
+	color: #FFFFFF;
+	opacity: 0.5;
+}
+
+
 div#siteNotice h2 { margin-bottom: 10px; }	
 div#siteNotice #bodyContent p { margin-bottom: 10px; }	
 
@@ -116,13 +123,21 @@ div#wrapper { width: 937px; margin: 0px auto; height: 100%; }
 		
 			#map h2 {margin-bottom: 46px; color: #000000;}
 		
-			#map_canvas { height: 462px }
+			#map_canvas { height: 462px; }
+			
+				.infoBox img.infoBoxIcon { float: left; margin-right: 10px; margin-bottom: 30px; }
+				
+				.infoBox p { text-align: left; width: 189px; float: right; }
+				
+				.infoBox a {color: #FFFFFF;}
 		
 		#firmen { float: left; border-bottom: 10px solid #000000; width: 100%; }
 		
 			#firmen ul { float: left; list-style: none; }
 			
 				#firmen li { float: left; width: 200px; margin-bottom: 54px; }
+					
+					#firmen a { color: #636363;}
 				
 		#footer {
 			width: 100%;
