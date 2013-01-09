@@ -31,41 +31,47 @@
 		<script src="js/infobox.js"></script>
 		<script>
 			function initialize() {
-
-		    	/*var contentString = '<div id="content">'+
-		    	    '<h2 id="firstHeading" class="firstHeading">Railslove GmbH / Coworking Cologne - Gasmotorenfabrik Köln e.V.</h2>'+
-		    	    '<div id="bodyContent">'+
-		    	    '<p><b>KURZINFO</b><br/>'+
-		    	    'Ab sofort könnt Ihr in der Woche jeden Tag von 09 Uhr bis 19 Uhr zum coworken bei uns vorbeikommen. Unsere Tarife: Tagesticket für 12 Euro / 5-Tagesticket für 50 Euro / Monatsticket für 120 Euro. Also, kommt einfach vorbei. No reservation needed. Wir freuen uns auf Euch.</p>'+
-		    	    '<p><b>INFRASTRUKTUR</b><br/>'+
-		    	    'Bei uns findet Ihr die gewohnte CoworkingSpace Ausstattung. Wenn Ihr einen Raum für Besprechungen/Veranstaltungen benötigt, dann einfach mail mit Euren Wünschen an kontakt@cowoco.de schicken.</p>'+
-		    	    '<p><b>ADRESSE</b><br/>'+
-		    	    'Deutz-Mülheimerstraße 129, 51063 Köln</p>'+
-		    	    '<p><a href="http://gasmotorenfabrik.de">'+
-		    	    'LINK ZUR WEBSITE</a></p>'+
-		    	    '</div>'+
-		    	    '</div>';*/
 		    	 
-		    	var contentString = '<p>Railslove GmbH<br />Deutz-Mülheimerstraße 129<br /> 51063 Köln<br /><br /><a href="http://gasmotorenfabrik.de">LINK ZUR WEBSITE</a></p>' + 
-		    		'<img src="images/infoWindowImage.png" alt="Image" align="left" class="infoBoxIcon"/>'
+		    	var railsloveContentString = '<p>Railslove GmbH<br />Deutz-Mülheimerstraße 129<br /> 51063 Köln<br /><br /><a href="http://gasmotorenfabrik.de">LINK ZUR WEBSITE</a></p>' + 
+		    		'<img src="images/railslove.png" alt="Railslove Image" align="left" class="infoBoxIcon"/>'
+		    	    
+		    	var dingfabrikContentString = '<p>Dingfabrik e.V.<br /> 51063 Köln<br /><br /><a href="http://dingfabrik.de">LINK ZUR WEBSITE</a></p>' + 
+		    		'<img src="images/dingfabrik.png" alt="Dingfabrik Image" align="left" class="infoBoxIcon"/>'
 		    	    
 		    	var secheltLoc = new google.maps.LatLng(50.94895731663069, 6.986802443861961);
-				var myMapOptions = {
-					 zoom: 12
-					,center: secheltLoc
-					,mapTypeId: google.maps.MapTypeId.ROADMAP
-				};
-				var theMap = new google.maps.Map(document.getElementById("map_canvas"), myMapOptions);
+					var myMapOptions = {
+						zoom: 12,center: secheltLoc ,mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+					var theMap = new google.maps.Map(document.getElementById("map_canvas"), myMapOptions);
 		
-		       var marker = new google.maps.Marker({
-		         map: theMap,
-		         draggable: false,
-		         position: new google.maps.LatLng(50.94895731663069, 6.986802443861961),
-		         visible: true
-		        });
-		                
-		        var boxText = document.createElement("div");
-		        boxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
+					var railslove_marker = new google.maps.Marker({
+						map: theMap,
+						draggable: false,
+						position: new google.maps.LatLng(50.94895731663069, 6.986802443861961),
+						visible: true
+					});
+					var dingfabrik_marker = new google.maps.Marker({
+						map: theMap,
+						draggable: false,
+						position: new google.maps.LatLng(50.951028, 6.986806),
+						visible: true
+					});
+
+		       var dingfabrikBoxText = document.createElement("div");
+		       dingfabrikBoxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
+				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
+				'background: -moz-linear-gradient(top,  rgba(40,40,40,0.9) 0%, rgba(0,0,0,0.9) 100%);' +
+				'background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40,40,40,0.8)), color-stop(100%,rgba(0,0,0,0.9)));' +
+				'background: -webkit-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: -o-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: -ms-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: linear-gradient(to bottom,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#cc282828\', endColorstr=\'#cc000000\',GradientType=0 );' +
+
+				'border-radius: 5px;' + 
+				'border: 1px solid #000000;';
+		       var railsloveBoxText = document.createElement("div");
+		       railsloveBoxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
 				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
 				'background: -moz-linear-gradient(top,  rgba(40,40,40,0.9) 0%, rgba(0,0,0,0.9) 100%);' +
 				'background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40,40,40,0.8)), color-stop(100%,rgba(0,0,0,0.9)));' +
@@ -78,10 +84,11 @@
 				'border-radius: 5px;' + 
 				'border: 1px solid #000000;';
 
-		        boxText.innerHTML = contentString;
-		                
-		        var myOptions = {
-		                 content: boxText
+		        railsloveBoxText.innerHTML = railsloveContentString;
+		        dingfabrikBoxText.innerHTML = dingfabrikContentString;
+
+		        var dingfabrikOptions = {
+		                 content: dingfabrikBoxText
 		                ,disableAutoPan: false
 		                ,maxWidth: 0
 		                ,pixelOffset: new google.maps.Size(-140, 0)
@@ -97,12 +104,37 @@
 		                ,enableEventPropagation: false
 		        };
 		
-		        var ib = new InfoBox(myOptions);
+		        var railsloveOptions = {
+		                 content: railsloveBoxText
+		                ,disableAutoPan: false
+		                ,maxWidth: 0
+		                ,pixelOffset: new google.maps.Size(-140, 0)
+		                ,zIndex: null
+		                ,boxStyle: {
+		                	width: "340px"
+		                 }
+		                ,closeBoxMargin: "10px 2px 2px 2px"
+		                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+		                ,infoBoxClearance: new google.maps.Size(1, 1)
+		                ,isHidden: false
+		                ,pane: "floatPane"
+		                ,enableEventPropagation: false
+		        };
+		
+		        var railsloveIb = new InfoBox(railsloveOptions);
 		        
+		        var dingfabrikIb = new InfoBox(dingfabrikOptions);
 
-				google.maps.event.addListener(marker, 'click', function() {
-				  ib.open(theMap,marker);
+				google.maps.event.addListener(railslove_marker, 'click', function() {
+				  railsloveIb.open(theMap,railslove_marker);
+				  dingfabrikIb.close();
 				});
+
+				google.maps.event.addListener(dingfabrik_marker, 'click', function() {
+				  dingfabrikIb.open(theMap,dingfabrik_marker);
+				  railsloveIb.close();
+				});
+
 		  	}
 		</script>
 	</head>
@@ -197,13 +229,21 @@
 							</tr>
 							<tr class="odd">
 								<td>Apple</td>
+								<td>iPod touch 2</td>
+								<td>iOS 4.2.1</td>
+								<td><a href="http://www.nodepond.com" title="Nodepond">Martin Wisniowski</a></td>
+								<td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
+								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>
+							<tr class="even">
+								<td>Apple</td>
 								<td>iPod touch 4</td>
 								<td>iOS 6.0</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
 								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="even">
+							<tr class="odd">
 								<td>Apple</td>
 								<td>iPhone 5</td>
 								<td>iOS 6.0.1</td>
@@ -211,7 +251,7 @@
 								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>		
-							<tr class="odd">
+							<tr class="even">
 								<td>Google</td>
 								<td>Nexus One</td>
 								<td>Android 2.3</td>
@@ -219,7 +259,7 @@
 								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>												
-							<tr class="even">
+							<tr class="odd">
 								<td>HTC</td>
 								<td>Magic <em>(UK/Vodafone)</em></td>
 								<td>Android 2.1 oder 2.2 mit CyanogenMod</td>
@@ -227,7 +267,7 @@
 								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="odd">
+							<tr class="even">
 								<td>HTC</td>
 								<td>Sensation</td>
 								<td>Android 4.1 mit HTC Sense</td>
@@ -235,7 +275,7 @@
 								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="even">
+							<tr class="odd">
 								<td>Motorola</td>
 								<td>Xoom US-version (Ohne branding)</td>
 								<td>Android 4.1</td>
@@ -243,14 +283,22 @@
 								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="odd">
+							<tr class="even">
 								<td>Samsung</td>
 								<td>Galaxy Nexus</td>
 								<td>Android 4.2.1 (<em>Kernel</em>: 3.0.31-gd5a18e0, <em>Build number</em>: JOP40D)</td>
 								<td><a href="http://railslove.com" title="Railslove GmbH">Railslove GmbH</a></td>
 								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>							
+							</tr>	
+							<tr class="odd">
+								<td>Sony</td>
+								<td>PSP</td>
+								<td>Firmware 1.5 (Homebrew-fähig!)</td>
+								<td><a href="http://www.nodepond.com" title="Nodepond">Martin Wisniowski</a></td>
+								<td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
+								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>						
 						</tbody>
 					</table>
 				</article>
@@ -268,6 +316,14 @@
 							<a href="http://www.gasmotorenfabrik.de">www.gasmotorenfabrik.de</a><br />							
 							<a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a><br/>
 							+491791353539 (Jan Kus)
+						</li>
+						<li>
+							<strong>Dingfabrik e.V.</strong><br />
+							Deutz M&uuml;hlheimer Straße 129<br />
+							51063 K&ouml;ln<br />
+							<a href="http://www.dingfabrik.de">www.dingfabrik.de</a><br />	
+							<a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a><br/>
+							+491706477680 (Alexander Speckmann)
 						</li>
 					</ul>
 				</footer>
