@@ -1,144 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 
-/** tag styling **/
-	
-* { margin: 0px; padding: 0px; border: 0px; }
-
-html, body { height: 100%; }
+html, body {
+    height: 100%;
+}
 
 body {
 	font-family: Helvetica;
-	background-color: #F2F1ED;
-	background-image: url("../images/header.png"); /** Bild leicht angepasst um Zentrierung zu erleichtern **/
-	background-repeat: no-repeat;
-	background-position: center 67px;
+	background: #f2f1ed url("../images/header.png") center 65px no-repeat;
 	color: #636363;
-	font-size: 10pt;
+	font-size: 13px;
 }
 
 /** layout styling **/
 
 #marker {
-	background-color: #000000;
-	color: #FFFFFF;
+	background-color: #000;
+	color: #fff;
 	opacity: 0.5;
 }
 
+div#siteNotice h2 {
+    margin-bottom: 10px;
+}
 
-div#siteNotice h2 { margin-bottom: 10px; }	
-div#siteNotice #bodyContent p { margin-bottom: 10px; }	
+div#siteNotice #bodyContent p {
+    margin-bottom: 10px;
+}
 
-div#wrapper { width: 937px; margin: 0px auto; height: 100%; }
+div#wrapper {
+    max-width: 937px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
 
-	#header { width: 100%; height: 468px; margin-bottom: 31px; }
-	
-		#header nav { float: right; }
-		
-			#header ul {list-style: none; margin-top: 26px;}
-			
-				#header li {float: left; margin-left: 7px; }
+	#header {
+        width: 100%;
+        height: 468px;
+        margin-bottom: 31px;
+    }
 
-	#header h1, #header h2 { display: none; }
+		#header nav {
+            float: right;
+        }
+
+			#header ul {
+                list-style: none;
+                margin-top: 26px;
+            }
+
+                #header li {
+                    float: left;
+                    margin-left: 7px;
+                }
+
+                #header h1,
+                #header h2 {
+                    display: none;
+                }
 
 
-	#content { width: 100%; float: left; }
-	
+	#content {
+        width: 100%;
+        float: left;
+    }
+
 		#about {
 			float: left;
 			width: 100%;
-			border-bottom: 10px solid #000000;
+			border-bottom: 10px solid #000;
 			margin-bottom: 38px;
 		}
-		
+
 			#about ul {
 				float: left;
 				width: 100%;
 				list-style: none;
 				margin-bottom: 25px;
 			}
-			
-				#about li { float: left; width: 300px; }
-				
-				#about li:first-child { margin-right: 19px; }
-				
-				#about li:nth-child(2) { margin-right: 18px; }
-				
+
+                #about li {
+                    float: left;
+                    width: 31%; /* 296/937 * 100 = 299px*/
+                    margin-right: 3.5%;
+                }
+
+				#about li:last-child{
+                    margin-right: 0;
+                }
+
 					#about h1 {
 						border-bottom: 1px solid #919190;
 						margin-bottom: 12px;
 						font-family: 'Vollkorn', serif;
-						font-size: 18pt;
+						font-size: 20px;
 						font-weight: normal;
 						font-style: italic;
 					}
-					
+
 					#about a {
 						background-color: #faec32;
 						background-image: url("../images/heart.png");
 						background-repeat: no-repeat;
 						background-position: 10px 10px;
-						color: #000000;
+						color: #000;
 						text-decoration: none;
 						padding: 10px;
-						font-size: 11pt;
+						font-size: 15px;
 						display: block;
 						border-radius: 5px;
-						margin: 15px auto 0px;
+						margin: 15px auto 0;
 						font-weight: bold;
 						text-indent: 40px;
 					}
-					
-					#about p { line-height: 14pt; }
-			
+
+					#about p {
+                        line-height: 1.4;
+                    }
+
 		#devices {
 			float: left;
 			width: 100%;
-			border-bottom: 10px solid #000000;
+			border-bottom: 10px solid #000;
 			margin-bottom: 43px;
 		}
-		
-			table { width: 100%; border-spacing: 0px; margin-bottom: 38px; }
-			
-				caption { display: none; }
-				
+
+			table {
+                width: 100%;
+                border-spacing: 0;
+                margin-bottom: 38px;
+            }
+
+				caption {
+                    display: none;
+                }
+
 					th {
-						background-color: #000000;
-						color: #FFFFFF;
+						background-color: #000;
+						color: #fff;
 						height: 40px;
 						padding: 1%;
 					}
-					
+
 					td {
-						text-align: center; 
-						width: 14.67%; 
+						text-align: center;
+						width: 14.67%;
 						padding: 1%;
 					}
-					
-					tr.odd { background-color: #FFFFFF; }
-					
-					tr.even  { background-color: #e6e5e1; }
-		
-			table a { font-weight: bold; color: #636363; }
-			
-		#map { float: left; width: 100%; margin-bottom: 54px; }
-		
-			#map h2 {margin-bottom: 46px; color: #000000;}
-		
-			#map_canvas { height: 462px; }
-			
-				.infoBox img.infoBoxIcon { float: left; margin-right: 10px; margin-bottom: 30px; }
-				
-				.infoBox p { text-align: left; width: 189px; float: right; }
-				
-				.infoBox a {color: #FFFFFF;}
-		
-		#firmen { float: left; border-bottom: 10px solid #000000; width: 100%; }
-		
-			#firmen ul { float: left; list-style: none; }
-			
-				#firmen li { float: left; width: 200px; margin-bottom: 54px; }
-					
-					#firmen a { color: #636363;}
-				
+
+					tr.odd {
+                        background-color: #fff;
+                    }
+
+					tr.even  {
+                        background-color: #e6e5e1;
+                    }
+
+			table a {
+                font-weight: bold;
+                color: #636363;
+            }
+
+		#map {
+            float: left;
+            width: 100%;
+            margin-bottom: 54px;
+        }
+
+			#map h2 {
+                margin-bottom: 46px;
+                color: #000;
+            }
+
+			#map_canvas {
+                height: 462px;
+            }
+
+				.infoBox img.infoBoxIcon {
+                    float: left;
+                    margin-right: 10px;
+                    margin-bottom: 30px;
+                }
+
+				.infoBox p {
+                    text-align: left;
+                    width: 189px;
+                    float: right;
+                }
+
+				.infoBox a {
+                    color: #fff;
+                }
+
+		#firmen {
+            float: left;
+            border-bottom: 10px solid #000;
+            width: 100%;
+        }
+
+			#firmen ul {
+                float: left;
+                list-style: none;
+            }
+
+				#firmen li {
+                    float: left;
+                    width: 200px;
+                    margin-bottom: 54px;
+                }
+
+					#firmen a {
+                        color: #636363;
+                    }
+
 		#footer {
 			width: 100%;
 			height: 38px;
@@ -146,21 +222,90 @@ div#wrapper { width: 937px; margin: 0px auto; height: 100%; }
 			float: left;
 			font-weight: bold;
 		}
-		
+
 			#footer a#backtotop {
-				float: right; 
+				float: right;
 				width: 40px;
 				height: 38px;
 				display: block;
 				background-image: url("../images/backtotop.png");
-				text-indent: -9999px;
+                text-indent: 100%;
+                white-space: nowrap;
+                overflow: hidden;
 			}
-			
+
 			#footer a {
 				text-decoration: none;
 				color: #636363;
 			}
-			
+
 				#footer a:hover {
 					text-decoration: underline;
 				}
+
+
+/*---------------Responsive Design---------------*/
+
+
+/* Table */
+.footable.breakpoint > tbody > tr > td.expand {
+    background: url('../images/plus.png') no-repeat 5px center;
+    padding-left: 40px;
+}
+
+.footable.breakpoint > tbody > tr.footable-detail-show > td.expand {
+    background: url('../images/minus.png') no-repeat 5px center;
+}
+
+.footable.breakpoint > tbody > tr.footable-row-detail {
+    background: #eee;
+}
+
+.footable.breakpoint > tbody > tr:hover:not(.footable-row-detail) {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1176px) {
+    body {
+        background-size: 100% auto;
+    }
+}
+
+@media only screen and (max-width: 959px) {
+
+}
+
+@media only screen and (max-width: 959px) {
+   #header {
+        height: 380px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    #header {
+        height: 300px;
+    }
+    #header img{
+        width: 120%;
+    }
+    #about li {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #header {
+        height: 210px;
+    }
+    #map_canvas {
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #header {
+        height: 180px;
+    }
+}
