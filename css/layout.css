@@ -278,14 +278,14 @@ div#wrapper {
 }
 
 @media only screen and (max-width: 959px) {
-   #header {
+    #header {
         height: 380px;
     }
 }
 
 @media only screen and (max-width: 767px) {
     #header {
-        height: 300px;
+        height: 320px;
     }
     #header img{
         width: 120%;
@@ -308,7 +308,7 @@ div#wrapper {
 
 @media only screen and (max-width: 500px) {
     #header {
-        height: 210px;
+        height: 230px;
     }
     #map_canvas {
         height: 200px;
@@ -321,7 +321,7 @@ div#wrapper {
 
 @media only screen and (max-width: 320px) {
     #header {
-        height: 180px;
+        height: 160px;
     }
     .infoBox {
         max-width: 200px;
