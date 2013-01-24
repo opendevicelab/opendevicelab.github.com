@@ -203,12 +203,18 @@ div#wrapper {
 			#firmen ul {
                 float: left;
                 list-style: none;
+                width: 100%;
             }
 
 				#firmen li {
                     float: left;
-                    width: 200px;
-                    margin-bottom: 54px;
+                    width: 22%;
+                    margin-right: 4%;
+                    margin-bottom: 50px;
+                }
+
+                #firmen li:last-child {
+                    margin-right: 0;
                 }
 
 					#firmen a {
@@ -272,14 +278,9 @@ div#wrapper {
 }
 
 @media only screen and (max-width: 959px) {
-
-}
-
-@media only screen and (max-width: 959px) {
    #header {
         height: 380px;
     }
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -293,6 +294,16 @@ div#wrapper {
         width: 100%;
         margin-bottom: 20px;
     }
+    #firmen li {
+        width: 48%;
+        margin-right: 4%;
+    }
+    #footer {
+        line-height: 16px;
+    }
+    #footer p {
+        padding: 3px 0 10px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -302,10 +313,26 @@ div#wrapper {
     #map_canvas {
         height: 200px;
     }
+    #firmen li {
+        width: 100%;
+        margin-right: 0;
+    }
 }
 
 @media only screen and (max-width: 320px) {
     #header {
         height: 180px;
+    }
+    .infoBox {
+        max-width: 200px;
+    }
+    .infoBox div {
+        padding: 10px !important;
+    }
+    .infoBox p {
+        width: 100%;
+    }
+    .infoBox img.infoBoxIcon {
+        display: none;
     }
 }
