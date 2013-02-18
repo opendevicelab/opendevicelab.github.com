@@ -1,56 +1,71 @@
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-	font-family: "Avenir Next", sans-serif;
+	font-family: Helvetica;
 	background: #f2f1ed url("../images/header.jpg") center 65px no-repeat;
 	color: #636363;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 /** layout styling **/
-#wrapper {
-	max-width: 937px;
-	margin: 0 auto;
-	padding: 0 5%;
+
+#marker {
+	background-color: #000;
+	color: #fff;
+	opacity: 0.5;
+}
+
+div#siteNotice h2 {
+    margin-bottom: 10px;
+}
+
+div#siteNotice #bodyContent p {
+    margin-bottom: 10px;
+}
+
+div#wrapper {
+    max-width: 937px;
+    margin: 0 auto;
+    padding: 0 5%;
 }
 
 	#header {
-		width: 100%;
-		height: 468px;
-		margin-bottom: 31px;
-	}
+        width: 100%;
+        height: 468px;
+        margin-bottom: 31px;
+    }
 
 		#header nav {
-			float: right;
-		}
+            float: right;
+        }
 
 			#header ul {
-				list-style: none;
-				margin-top: 26px;
-			}
+                list-style: none;
+                margin-top: 26px;
+            }
 
-				#header li {
-					float: left;
-					margin-left: 7px;
-				}
+                #header li {
+                    float: left;
+                    margin-left: 7px;
+                }
 
-				#header h1,
-				#header h2 {
-					display: none;
-				}
+                #header h1,
+                #header h2 {
+                    display: none;
+                }
 
 
 	#content {
-		width: 100%;
-		float: left;
-	}
+        width: 100%;
+        float: left;
+    }
 
 		#about {
 			float: left;
@@ -66,15 +81,15 @@ body {
 				margin-bottom: 25px;
 			}
 
-				#about li {
-					float: left;
-					width: 31%; /* 296/937 * 100 = 299px*/
-					margin-right: 3.5%;
-				}
+                #about li {
+                    float: left;
+                    width: 31%; /* 296/937 * 100 = 299px*/
+                    margin-right: 3.5%;
+                }
 
 				#about li:last-child{
-					margin-right: 0;
-				}
+                    margin-right: 0;
+                }
 
 					#about h1 {
 						border-bottom: 1px solid #919190;
@@ -86,7 +101,10 @@ body {
 					}
 
 					#about a {
-						background: #faec32 url("../images/heart.png") 10px 10px no-repeat;
+						background-color: #faec32;
+						background-image: url("../images/heart.png");
+						background-repeat: no-repeat;
+						background-position: 10px 10px;
 						color: #000;
 						text-decoration: none;
 						padding: 10px;
@@ -96,13 +114,11 @@ body {
 						margin: 15px auto 0;
 						font-weight: bold;
 						text-indent: 40px;
-						box-shadow: 1px 0 6px rgba(0, 0, 0, 0.29);
-
 					}
 
 					#about p {
-						line-height: 1.4;
-					}
+                        line-height: 1.4;
+                    }
 
 		#devices {
 			float: left;
@@ -112,14 +128,14 @@ body {
 		}
 
 			table {
-				width: 100%;
-				border-spacing: 0;
-				margin-bottom: 38px;
-			}
+                width: 100%;
+                border-spacing: 0;
+                margin-bottom: 38px;
+            }
 
 				caption {
-					display: none;
-				}
+                    display: none;
+                }
 
 					th {
 						background-color: #000;
@@ -135,148 +151,79 @@ body {
 					}
 
 					tr.odd {
-						background-color: #fff;
-					}
+                        background-color: #fff;
+                    }
 
 					tr.even  {
-						background-color: #e6e5e1;
-					}
+                        background-color: #e6e5e1;
+                    }
 
 			table a {
-				font-weight: bold;
-				color: #636363;
-			}
+                font-weight: bold;
+                color: #636363;
+            }
 
 		#map {
-			float: left;
-			width: 100%;
-			margin-bottom: 54px;
-		}
+            float: left;
+            width: 100%;
+            margin-bottom: 54px;
+        }
 
 			#map h2 {
-				margin-bottom: 46px;
-				color: #000;
-			}
+                margin-bottom: 46px;
+                color: #000;
+            }
 
-			#map-canvas {
-				height: 462px;
-			}
+			#map_canvas {
+                height: 462px;
+            }
 
-				.infobox {
-					margin-top: 10px;
-					width: 290px;
-					background: #555;
-					background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.85)));
-					background: -webkit-linear-gradient(top, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
-					background:    -moz-linear-gradient(top, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
-					background:      -o-linear-gradient(top, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
-					background:   linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
-					border: 1px solid #000;
-					border-radius: 3px;
-					box-shadow: inset 0 1px rgba(255,255,255,0.15), 1px 0 3px rgba(0, 0, 0, 0.7);
-				}
+				.infoBox img.infoBoxIcon {
+                    float: left;
+                    margin-right: 10px;
+                    margin-bottom: 30px;
+                }
 
-				/* Pointer */
-				.infobox:after, .infobox:before {
-					bottom: 100%;
-					border: solid transparent;
-					content: ' ';
-					height: 0;
-					width: 0;
-					position: absolute;
-				}
+				.infoBox p {
+                    text-align: left;
+                    width: 189px;
+                    float: right;
+                }
 
-				.infobox:after {
-					border-bottom-color: rgba(0,0,0,0.7);
-					border-width: 10px;
-					left: 50%;
-					margin-left: -10px;
-				}
-
-				.infobox:before {
-					border-width: 11px;
-					left: 50%;
-					margin-left: -11px;
-				}
-
-				.infobox > img { /* Close icon */
-					position: absolute !important;
-					right: 3px;
-					top: 5px;
-					margin: 0 !important;
-				}
-
-				.infobox div {
-					padding: 20px;
-					overflow: hidden;
-				}
-
-					.location-icon {
-						float: left;
-						border: 1px solid rgba( 0, 0, 0, 0.4 );
-						box-shadow: 0 0 3px rgba( 0, 0, 0, 0.75 );
-						margin: 0 20px 30px 0;
-					}
-
-					.location-address,
-					.location-contact {
-						font-family: sans-serif;
-						font-size: 12px;
-						line-height: 16px;
-						color: #fff;
-						text-shadow: 1px 2px 3px #000;
-					}
-
-					.location-contact {
-						margin-top: 20px;
-					}
-
-					.location-address a,
-					.location-contact a {
-						color: #fff;
-						text-decoration: none;
-					}
-
-					.location-address a:hover,
-					.location-contact a:hover {
-						text-decoration: underline;
-					}
-
-			#map-markers {
-				display: none;;
-			}
+				.infoBox a {
+                    color: #fff;
+                }
 
 		#firmen {
-			float: left;
-			border-bottom: 10px solid #000;
-			width: 100%;
-		}
+            float: left;
+            border-bottom: 10px solid #000;
+            width: 100%;
+        }
 
 			#firmen ul {
-				float: left;
-				list-style: none;
-				width: 100%;
-			}
+                float: left;
+                list-style: none;
+                width: 100%;
+            }
 
 				#firmen li {
-					float: left;
-					width: 22%;
-					margin-right: 4%;
-					margin-bottom: 50px;
-				}
+                    float: left;
+                    width: 22%;
+                    margin-right: 4%;
+                    margin-bottom: 50px;
+                }
 
-				#firmen li:last-child {
-					margin-right: 0;
-				}
+                #firmen li:last-child {
+                    margin-right: 0;
+                }
 
 					#firmen a {
-						color: #636363;
-					}
+                        color: #636363;
+                    }
 
 		#footer {
 			width: 100%;
 			height: 38px;
-			font-size: 12px;
 			line-height: 38px;
 			float: left;
 			font-weight: bold;
@@ -288,9 +235,9 @@ body {
 				height: 38px;
 				display: block;
 				background-image: url("../images/backtotop.png");
-				text-indent: 100%;
-				white-space: nowrap;
-				overflow: hidden;
+                text-indent: 100%;
+                white-space: nowrap;
+                overflow: hidden;
 			}
 
 			#footer a {
@@ -308,91 +255,84 @@ body {
 
 /* Table */
 .footable.breakpoint > tbody > tr > td.expand {
-	background: url('../images/plus.png') no-repeat 5px center;
-	padding-left: 40px;
+    background: url('../images/plus.png') no-repeat 5px center;
+    padding-left: 40px;
 }
 
 .footable.breakpoint > tbody > tr.footable-detail-show > td.expand {
-	background: url('../images/minus.png') no-repeat 5px center;
+    background: url('../images/minus.png') no-repeat 5px center;
 }
 
 .footable.breakpoint > tbody > tr.footable-row-detail {
-	background: #eee;
+    background: #eee;
 }
 
 .footable.breakpoint > tbody > tr:hover:not(.footable-row-detail) {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1176px) {
-	body {
-		-webkit-background-size: 100% auto;
-		-moz-background-size:    100% auto;
-		background-size:         100% auto;
-	}
+    body {
+        background-size: 100% auto;
+    }
 }
 
 @media only screen and (max-width: 959px) {
-	#header {
-		height: 380px;
-	}
+    #header {
+        height: 380px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
-	#header {
-		height: 320px;
-	}
-	#about li {
-		width: 100%;
-		margin-bottom: 20px;
-	}
-	#firmen li {
-		width: 48%;
-		margin-right: 4%;
-	}
-	#footer {
-		line-height: 16px;
-	}
-	#footer p {
-		padding: 3px 0 10px;
-	}
+    #header {
+        height: 320px;
+    }
+    #header img{
+        width: 120%;
+    }
+    #about li {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    #firmen li {
+        width: 48%;
+        margin-right: 4%;
+    }
+    #footer {
+        line-height: 16px;
+    }
+    #footer p {
+        padding: 3px 0 10px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
-	#header {
-		height: 230px;
-	}
-	#map-canvas {
-		height: 200px;
-	}
-	#firmen li {
-		width: 100%;
-		margin-right: 0;
-	}
+    #header {
+        height: 230px;
+    }
+    #map_canvas {
+        height: 200px;
+    }
+    #firmen li {
+        width: 100%;
+        margin-right: 0;
+    }
 }
 
 @media only screen and (max-width: 320px) {
-	#header {
-		height: 160px;
-	}
-	#header img {
-		width: 110%;
-	}
-	.infobox {
-		width: 200px !important;
-	}
-	.location-icon {
-		display: none;
-	}
-	.infobox div {
-		padding: 5px;
-		text-align: center;
-	}
-	.infobox p {
-		float: none;
-		margin: 0;
-	}
-	.infobox:after, .infobox:before {
-		display: none;
-	}
+    #header {
+        height: 160px;
+    }
+    .infoBox {
+        max-width: 200px;
+    }
+    .infoBox div {
+        padding: 10px !important;
+    }
+    .infoBox p {
+        width: 100%;
+    }
+    .infoBox img.infoBoxIcon {
+        display: none;
+    }
 }
