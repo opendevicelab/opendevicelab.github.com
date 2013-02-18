@@ -1,355 +1,340 @@
+ 
+Pull to refresh
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-		
-		<title>Open Device Lab Cologne</title>
-		<meta name="keywords" content="Open Device Lab Cologne, Cologne, Device, Android, iOS, Windows Phone, BlackBerry" />
-		<meta name="description" content="Open Device Labs - der kostenlose Gerätepark für Entwickler. 
-			ODLs ist eine neue, weltweite Bewegung um Software-Entwicklern Zugriff auf möglichst viele Testgeräte zu ermöglichen." />
-		<meta name="author" content="railslove.com" />
-		
-		<link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic' rel='stylesheet' />
-		<link href="css/layout.css" rel="stylesheet" media="screen" />
-                
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-        <script src="js/footable-0.1.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#backtotop').click(function () {
-                    $('body,html').animate({
-                        scrollTop: 0
-                    }, 800);
-                    return false;
-                });
-                
-                $('.footable').footable( {
-                    breakpoints: {
-                        phone: 480,
-                        tablet: 1024,
-                        custom: 700
-                    },
-                });
-		  });
-        </script>
-		<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-		<script src="js/infobox.js"></script>
-		<script>
-			function initialize() {
-		    	 
-		    	var railsloveContentString = '<p>Railslove GmbH<br />Deutz-Mülheimerstraße 129<br /> 51063 Köln<br /><br /><a href="http://gasmotorenfabrik.de">LINK ZUR WEBSITE</a></p>' + 
-		    		'<img src="images/railslove.png" alt="Railslove Image" align="left" class="infoBoxIcon"/>'
-		    	    
-		    	var dingfabrikContentString = '<p>Dingfabrik e.V.<br /> 51063 Köln<br /><br /><a href="http://dingfabrik.de">LINK ZUR WEBSITE</a></p>' + 
-		    		'<img src="images/dingfabrik.png" alt="Dingfabrik Image" align="left" class="infoBoxIcon"/>'
-		    	    
-		    	var secheltLoc = new google.maps.LatLng(50.94895731663069, 6.986802443861961);
-					var myMapOptions = {
-						zoom: 12,
-						center: secheltLoc,
-						mapTypeId: google.maps.MapTypeId.ROADMAP,
-						scrollwheel: false,
-						dragable: false
-					};
-					var theMap = new google.maps.Map(document.getElementById("map_canvas"), myMapOptions);
-		
-					var railslove_marker = new google.maps.Marker({
-						map: theMap,
-						draggable: false,
-						position: new google.maps.LatLng(50.94895731663069, 6.986802443861961),
-						visible: true
-					});
-					var dingfabrik_marker = new google.maps.Marker({
-						map: theMap,
-						draggable: false,
-						position: new google.maps.LatLng(50.951028, 6.986806),
-						visible: true
-					});
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
-		       var dingfabrikBoxText = document.createElement("div");
-		       dingfabrikBoxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
-				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
-				'background: -moz-linear-gradient(top,  rgba(40,40,40,0.9) 0%, rgba(0,0,0,0.9) 100%);' +
-				'background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40,40,40,0.8)), color-stop(100%,rgba(0,0,0,0.9)));' +
-				'background: -webkit-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'background: -o-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'background: -ms-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'background: linear-gradient(to bottom,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#cc282828\', endColorstr=\'#cc000000\',GradientType=0 );' +
+    <title>Open Device Lab Cologne</title>
+    <meta name="keywords" content="Open Device Lab Cologne, Cologne, Device, Android, iOS, Windows Phone, BlackBerry" />
+    <meta name="description" content="Open Device Labs - der kostenlose Gerätepark für Entwickler.
+      ODLs ist eine neue, weltweite Bewegung um Software-Entwicklern Zugriff auf möglichst viele Testgeräte zu ermöglichen." />
+    <meta name="author" content="railslove.com" />
 
-				'border-radius: 5px;' + 
-				'border: 1px solid #000000;';
-		       var railsloveBoxText = document.createElement("div");
-		       railsloveBoxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
-				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
-				'background: -moz-linear-gradient(top,  rgba(40,40,40,0.9) 0%, rgba(0,0,0,0.9) 100%);' +
-				'background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40,40,40,0.8)), color-stop(100%,rgba(0,0,0,0.9)));' +
-				'background: -webkit-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'background: -o-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'background: -ms-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'background: linear-gradient(to bottom,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
-				'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#cc282828\', endColorstr=\'#cc000000\',GradientType=0 );' +
-
-				'border-radius: 5px;' + 
-				'border: 1px solid #000000;';
-
-		        railsloveBoxText.innerHTML = railsloveContentString;
-		        dingfabrikBoxText.innerHTML = dingfabrikContentString;
-
-		        var dingfabrikOptions = {
-		                 content: dingfabrikBoxText
-		                ,disableAutoPan: false
-		                ,maxWidth: 0
-		                ,pixelOffset: new google.maps.Size(-140, 0)
-		                ,zIndex: null
-		                ,boxStyle: {
-		                	width: "340px"
-		                 }
-		                ,closeBoxMargin: "10px 2px 2px 2px"
-		                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
-		                ,infoBoxClearance: new google.maps.Size(1, 1)
-		                ,isHidden: false
-		                ,pane: "floatPane"
-		                ,enableEventPropagation: false
-		        };
-		
-		        var railsloveOptions = {
-		                 content: railsloveBoxText
-		                ,disableAutoPan: false
-		                ,maxWidth: 0
-		                ,pixelOffset: new google.maps.Size(-140, 0)
-		                ,zIndex: null
-		                ,boxStyle: {
-		                	width: "340px"
-		                 }
-		                ,closeBoxMargin: "10px 2px 2px 2px"
-		                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
-		                ,infoBoxClearance: new google.maps.Size(1, 1)
-		                ,isHidden: false
-		                ,pane: "floatPane"
-		                ,enableEventPropagation: false
-		        };
-		
-		        var railsloveIb = new InfoBox(railsloveOptions);
-		        
-		        var dingfabrikIb = new InfoBox(dingfabrikOptions);
-
-				google.maps.event.addListener(railslove_marker, 'click', function() {
-				  railsloveIb.open(theMap,railslove_marker);
-				  dingfabrikIb.close();
-				});
-
-				google.maps.event.addListener(dingfabrik_marker, 'click', function() {
-				  dingfabrikIb.open(theMap,dingfabrik_marker);
-				  railsloveIb.close();
-				});
-
-		  	}
-		</script>
-	</head>
-	<body onload="initialize()">
-		<div id="wrapper">
-			<header id="header">
-				<nav>
-					<ul>
-						<li>
-							<a href="mailto:opendevicelab@railslove.com" title="E-Mail">
-								<img src="images/email.png" alt="E-Mail" />
-							</a>
-						</li>
-						<li>
-							<a href="http://www.facebook.com/OpenDeviceLabCologne" title="Open Device Lab on Facebook">
-								<img src="images/facebook.png" alt="Facebook" />
-							</a>
-						</li>
-						<li>
-							<a href="http://twitter.com/odl_cgn" title="Open Device Lab on Twitter">
-								<img src="images/twitter.png" alt="Twitter" />
-							</a>
-						</li>
-					</ul>
-				</nav>
-				<h1>Open Device Lab Cologne</h1>
-				<h2>Test your app on mobile devices, for free!</h2>
-			</header>
-			<section id="content">
-				<header id="about">
-					<ul>
-						<li>
-							<h1>&Uuml;ber Open Device Labs</h1>
-							<p>
-								Open Device Labs - der kostenlose Ger&auml;tepark f&uuml;r Entwickler. ODLs ist eine neue, weltweite
-								Bewegung um Software-Entwicklern Zugriff auf m&ouml;glichst viele Testger&auml;te zu erm&ouml;glichen.
-							</p>
-						</li>
-						<li>
-							<h1>Open Device Lab Cologne</h1>
-							<p>
-								Das Open Device Lab Cologne wird von verschiedenen Kölner Firmen betrieben und du findest uns an vielen Stellen K&ouml;lns.
-								Auf dieser Seite findest du eine Liste der zur Verf&uuml;gung stehenden Ger&auml;te und den Weg zu uns!
-							</p>
-						</li>
-						<li>
-							<h1>Mitmachen!</h1>
-							<p>
-								Von der Community, f&uuml;r die Community! <br />
-								Wir sind für jedes Testger&auml;t dankbar! 
-								<strong>Bist Du Betreiber?</strong> Gib uns bescheid wir kümmern uns ums Gerätesharing!
-								<a href="mailto:opendevicelab@railslove.com" title="Donate a Device">Donate a Device</a>
-							</p>
-						</li>
-					</ul>
-				</header>
-				<article id="devices">
-					<table class="footable">
-						<caption>All available devices</caption>
-						<thead>
-							<tr>
-								<th data-class="expand" >Hersteller</th>
-								<th data-hide="phone" >Modell</th>
-								<th>OS / Version</th>
-								<th data-hide="phone,custom" >Contributor</th>
-								<th data-hide="phone,custom">Standort</th>
-								<th>verfügbar</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="odd">
-								<td>Apple</td>
-								<td>iPad 2</td>
-								<td>iOS 6.0 (10A403)</td>
-								<td><a href="http://jankus.name" title="Jan Kus">Jan Kus</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>
-							<tr class="even">
-								<td>Apple</td>
-								<td>iPod touch 1</td>
-								<td>iOS 3.1</td>
-								<td><a href="https://twitter.com/buenocode" title="buenocode">buenocode</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Testgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>
-							<tr class="odd">
-								<td>Apple</td>
-								<td>iPod touch 2</td>
-								<td>iOS 4.2.1</td>
-								<td><a href="http://www.nodepond.com" title="Nodepond">Martin Wisniowski</a></td>
-								<td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
-								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>
-							<tr class="even">
-								<td>Apple</td>
-								<td>iPod touch 4</td>
-								<td>iOS 6.0</td>
-								<td><a href="https://twitter.com/buenocode" title="buenocode">buenocode</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Testgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>
-							<tr class="odd">
-								<td>Apple</td>
-								<td>iPhone 5</td>
-								<td>iOS 6.0.1</td>
-								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>		
-							<tr class="even">
-								<td>Google</td>
-								<td>Nexus One</td>
-								<td>Android 2.3</td>
-								<td><a href="https://twitter.com/buenocode" title="buenocode">buenocode</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Testgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>												
-							<tr class="odd">
-								<td>HTC</td>
-								<td>Magic <em>(UK/Vodafone)</em></td>
-								<td>Android 2.1 oder 2.2 mit CyanogenMod</td>
-								<td><a href="https://twitter.com/buenocode" title="buenocode">buenocode</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Testgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>
-							<tr class="even">
-								<td>HTC</td>
-								<td>Sensation</td>
-								<td>Android 4.1 mit HTC Sense</td>
-								<td><a href="https://twitter.com/buenocode" title="buenocode">buenocode</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Testgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>
-							<tr class="odd">
-								<td>Motorola</td>
-								<td>Xoom US-version (Ohne branding)</td>
-								<td>Android 4.1</td>
-								<td><a href="https://twitter.com/buenocode" title="buenocode">buenocode</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Testgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>
-							<tr class="even">
-								<td>Samsung</td>
-								<td>Galaxy Nexus</td>
-								<td>Android 4.2.1 (<em>Kernel</em>: 3.0.31-gd5a18e0, <em>Build number</em>: JOP40D)</td>
-								<td><a href="http://railslove.com" title="Railslove GmbH">Railslove GmbH</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>	
-							<tr class="odd">
-								<td>Sony</td>
-								<td>PSP</td>
-								<td>Firmware 1.5 (Homebrew-fähig!)</td>
-								<td><a href="http://www.nodepond.com" title="Nodepond">Martin Wisniowski</a></td>
-								<td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
-								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>						
-						</tbody>
-					</table>
-				</article>
-				<article id="map">					
-					<h2>Du findest uns &uuml;berall hier:</h2>
-					<div id="map_canvas"></div>
-				</article>
-				<footer id="firmen">
-					<ul>
-						<li>
-							<strong>Railslove GmbH / Gasmotorenfabrik Köln e.V.</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							<a href="http://www.railslove.com">www.railslove.com</a><br />
-							<a href="http://www.gasmotorenfabrik.de">www.gasmotorenfabrik.de</a><br />
-							<a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a><br/>
-							+491791353539 (Jan Kus)
-						</li>
-						<li>
-							<strong>Dingfabrik e.V.</strong><br />
-							Deutz M&uuml;hlheimer Straße 129<br />
-							51063 K&ouml;ln<br />
-							<a href="http://www.dingfabrik.de">www.dingfabrik.de</a><br />	
-							<a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a><br/>
-							+491706477680 (Alexander Speckmann)
-						</li>
-					</ul>
-				</footer>
-			</section>
-			<footer id="footer">
-				<a href="#" id="backtotop" title="Back to top">Back to top</a>
-				&copy; 2013 // Made with love <a href="https://twitter.com/railslove" title="@railslove">@railslove</a> // Railslove GmbH, Deutz M&uuml;hlheimer Straße 129, 51063 K&ouml;ln
-			</footer>
-		</div>
-		<script type="text/javascript">
-
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-37041002-1']);
-		  _gaq.push(['_trackPageview']);
-
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-		</script>
-	</body>
+    <link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic" rel="stylesheet" />
+    <link href="css/layout.min.css" rel="stylesheet" media="screen" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="header">
+        <nav>
+          <ul>
+            <li>
+              <a href="mailto:opendevicelab@railslove.com" title="E-Mail">
+                <img src="images/email.png" alt="E-Mail" />
+              </a>
+            </li>
+            <li>
+              <a href="http://www.facebook.com/OpenDeviceLabCologne" title="Open Device Lab on Facebook">
+                <img src="images/facebook.png" alt="Facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="http://twitter.com/odl_cgn" title="Open Device Lab on Twitter">
+                <img src="images/twitter.png" alt="Twitter" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <h1>Open Device Lab Cologne</h1>
+        <h2>Test your app on mobile devices, for free!</h2>
+      </header>
+      <section id="content">
+        <header id="about">
+          <ul>
+            <li>
+              <h1>Über Open Device Labs</h1>
+              <p>
+                Open Device Labs - der kostenlose Gerätepark für Entwickler. ODLs ist eine neue, weltweite
+                Bewegung um Software-Entwicklern Zugriff auf möglichst viele Testgeräte zu ermöglichen.
+              </p>
+            </li>
+            <li>
+              <h1>Open Device Lab Cologne</h1>
+              <p>
+                Das Open Device Lab Cologne wird von verschiedenen Kölner Firmen betrieben und du findest uns an vielen Stellen Kölns.
+                Auf dieser Seite findest du eine Liste der zur Verfügung stehenden Geräte und den Weg zu uns!
+              </p>
+            </li>
+            <li>
+              <h1>Mitmachen!</h1>
+              <p>
+                Von der Community, für die Community! <br />
+                Wir sind für jedes Testgerät dankbar!
+                <strong>Bist Du Betreiber?</strong> Gib uns bescheid wir kümmern uns ums Gerätesharing!
+                <a href="mailto:opendevicelab@railslove.com" title="Donate a Device">Donate a Device</a>
+              </p>
+            </li>
+          </ul>
+        </header>
+        <article id="devices">
+          <table class="footable">
+            <caption>All available devices</caption>
+            <thead>
+              <tr>
+                <th data-class="expand" >Hersteller</th>
+                <th data-hide="phone" >Modell</th>
+                <th>OS / Version</th>
+                <th data-hide="phone,custom" >Contributor</th>
+                <th data-hide="phone,custom">Standort</th>
+                <th>verfügbar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd">
+                <td>Apple</td>
+                <td>iPad 2</td>
+                <td>iOS 6.0 (10A403)</td>
+                <td><a href="http://jankus.name" title="Jan Kus">Jan Kus</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="even">
+                <td>Asus</td>
+                <td> Transformer Pad Infinity (1920x1200)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>                             
+              <tr class="odd">
+                <td>Apple</td>
+                <td>iPod touch 1</td>
+                <td>iOS 3.1</td>
+                <td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="even">
+                <td>Apple</td>
+                <td>iPod touch 2</td>
+                <td>iOS 4.2.1</td>
+                <td><a href="http://www.nodepond.com" title="Nodepond">Martin Wisniowski</a></td>
+                <td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="odd">
+                <td>Apple</td>
+                <td>iPod touch 4</td>
+                <td>iOS 6.0</td>
+                <td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="even">
+                <td>Apple</td>
+                <td>iPhone 5</td>
+                <td>iOS 6.0.1</td>
+                <td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>   
+              <tr class="odd">
+                <td>Google</td>
+                <td>Nexus One</td>
+                <td>Android 2.3</td>
+                <td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>                       
+              <tr class="even">
+                <td>HTC</td>
+                <td>Magic <em>(UK/Vodafone)</em></td>
+                <td>Android 2.1 oder 2.2 mit CyanogenMod</td>
+                <td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="odd">
+                <td>HTC</td>
+                <td>Sensation</td>
+                <td>Android 4.1 mit HTC Sense</td>
+                <td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>  
+              </tr>
+               <tr class="even">
+                <td>HTC</td>
+                <td>Google Nexus One (480x800)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+               <tr class="odd">
+                <td>HTC</td>
+                <td>Desire Z (480x800)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+               <tr class="even">
+                <td>HTC</td>
+                <td>Hero (320x480)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr> 
+              <tr class="odd">
+                <td>LG</td>
+                <td>P880 Optimus 4x HD (720x1280)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>             
+              <tr class="even">
+                <td>Motorola</td>
+                <td>Xoom US-version (Ohne branding)</td>
+                <td>Android 4.1</td>
+                <td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="odd">
+                <td>Motorola</td>
+                <td>Xoom (1280x800)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="even">
+                <td>Samsung</td>
+                <td>Galaxy Nexus</td>
+                <td>Android 4.2.1 (<em>Kernel</em>: 3.0.31-gd5a18e0, <em>Build number</em>: JOP40D)</td>
+                <td><a href="http://railslove.com" title="Railslove GmbH">Railslove GmbH</a></td>
+                <td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+              <tr class="odd">
+                <td>Samsung</td>
+                <td>Google Nexus i9250 (720x1280)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>
+               <tr class="even">
+                <td>Samsung</td>
+                <td>Google Nexus S i9023 (480x800)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>                     
+                <tr class="odd">
+                <td>Samsung</td>
+                <td>Galaxy Tab 2 (1024x600)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr> 
+               <tr class="even">
+                <td>Samsung</td>
+                <td>Galaxy Tab (1024x600)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr> 
+              <tr class="odd">
+                <td>Samsung</td>
+                <td>Galaxy Tab 2 (1280x800)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr> 
+              <tr class="even">
+                <td>Sony</td>
+                <td>PSP</td>
+                <td>Firmware 1.5 (Homebrew-fähig!)</td>
+                <td><a href="http://www.nodepond.com" title="Nodepond">Martin Wisniowski</a></td>
+                <td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
+                <td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr> 
+              <tr class="odd">
+                <td>Odys</td>
+                <td>Next (800x600)</td>
+                <td>n/a</td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+                <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+                <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+              </tr>                       
+            </tbody>
+          </table>
+        </article>
+        <article id="map">
+          <h2>Du findest uns überall hier:</h2>
+          <div id="map-canvas"></div>
+          <div id="map-markers">
+            <div data-loc="50.922206,6.96283" data-title="Railslove">
+              <div>
+                <img class="location-icon" src="images/railslove.png" alt="Railslove"  />
+                <p class="location-address">Railslove GmbH (Bottfabrik)<br />An der Bottmühle 5<br />50678 Köln</p>
+                <p class="location-contact"><a href="http://gasmotorenfabrik.de">gasmotorenfabrik.de</a></p>
+              </div>
+            </div>
+            <div data-loc="50.951028, 6.986806" data-title="Dingfabrik">
+              <div>
+                <img class="location-icon" src="images/dingfabrik.png" alt="Dingfabrik"  />
+                <p class="location-address">Dingfabrik e.V.<br />Deutz-Mülheimerstr. 129<br />51063 Köln</p>
+                <p class="location-contact"><a href="http://dingfabrik.de">dingfabrik.de</a></p>
+              </div>
+            </div>
+            <div data-loc="50.903933, 6.933783" data-title="Finanzen100">
+              <div>
+                <img class="location-icon" src="images/finanzen100.png" alt="Finanzen100"  />
+                <p class="location-address">Finanzen100 GmbH<br />Zollstockgürtel 67<br />50969 Köln</p>
+                <p class="location-contact"><a href="http://finanzen100.de">finanzen100.de</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <footer id="firmen">
+          <ul>
+            <li>
+              <strong>Railslove GmbH (Bottfabrik)</strong><br />
+              An der Bottmühle 5<br />
+              50678 Köln<br />
+              <a href="http://www.railslove.com">www.railslove.com</a><br />
+              <a href="http://www.gasmotorenfabrik.de">www.gasmotorenfabrik.de</a><br />
+              <a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a><br/>
+              +491791353539 (Jan Kus)
+            </li>
+            <li>
+              <strong>Dingfabrik e.V.</strong><br />
+              Deutz Mühlheimer Straße 129<br />
+              51063 Köln<br />
+              <a href="http://www.dingfabrik.de">www.dingfabrik.de</a><br />
+              <a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a><br/>
+              +491706477680 (Alexander Speckmann)
+            </li>
+            <li>
+              <strong>Finanzen100 GmbH</strong><br />
+              Zollstockgürtel 67<br />
+              50969 Köln<br />
+              <a href="http://www.dingfabrik.de">www.finanzen100.de</a><br />
+              <a href="mailto:opendevicelab@railslove.com">opendevicelab@railslove.com</a><br/>
+            </li>
+          </ul>
+        </footer>
+      </section>
+      <footer id="footer">
+        <a href="#wrapper" id="backtotop" title="Back to top">Back to top</a>
+        &copy; 2013 // Made with love <a href="https://twitter.com/railslove" title="@railslove">@railslove</a> // Railslove GmbH, Deutz Mühlheimer Straße 129, 51063 Köln
+      </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyCCkoUqGUd-O3RI3cf3ZZZme0dIOri5Mf0&sensor=false"></script>
+    <script src="js/footable-0.1.min.js" type="text/javascript"></script>
+    <script src="js/infobox.min.js"></script>
+    <script src="js/opendevicelab.min.js"></script>
+  </body>
 </html>
