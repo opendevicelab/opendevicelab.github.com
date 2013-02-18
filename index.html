@@ -32,11 +32,14 @@
 		<script>
 			function initialize() {
 		    	 
-		    	var railsloveContentString = '<p>Railslove GmbH<br />Deutz-Mülheimerstraße 129<br /> 51063 Köln<br /><br /><a href="http://gasmotorenfabrik.de">LINK ZUR WEBSITE</a></p>' + 
+		    	var railsloveContentString = '<p>Railslove GmbH<br />An der Bottmühle<br />50678 Köln<br /><br /><a href="http://gasmotorenfabrik.de">LINK ZUR WEBSITE</a></p>' + 
 		    		'<img src="images/railslove.png" alt="Railslove Image" align="left" class="infoBoxIcon"/>'
 		    	    
-		    	var dingfabrikContentString = '<p>Dingfabrik e.V.<br /> 51063 Köln<br /><br /><a href="http://dingfabrik.de">LINK ZUR WEBSITE</a></p>' + 
+		    	var dingfabrikContentString = '<p>Dingfabrik e.V.<br />Deutz-Mülheimerstraße 129<br />51063 Köln<br /><br /><a href="http://dingfabrik.de">LINK ZUR WEBSITE</a></p>' + 
 		    		'<img src="images/dingfabrik.png" alt="Dingfabrik Image" align="left" class="infoBoxIcon"/>'
+		    	    
+		    	var finanzen100ContentString = '<p>Finanzen100 GmbH</br />Zollstockgürtel 67<br />50969 Köln<br /><br /><a href="http://www.finanzen100.de/">LINK ZUR WEBSITE</a></p>' + 
+		    		'<img src="images/finanzen100.png" alt="Finanzen100 Image" align="left" class="infoBoxIcon"/>'
 		    	    
 		    	var secheltLoc = new google.maps.LatLng(50.94895731663069, 6.986802443861961);
 					var myMapOptions = {
@@ -47,7 +50,7 @@
 					var railslove_marker = new google.maps.Marker({
 						map: theMap,
 						draggable: false,
-						position: new google.maps.LatLng(50.94895731663069, 6.986802443861961),
+						position: new google.maps.LatLng(50.92245, 6.96280),
 						visible: true
 					});
 					var dingfabrik_marker = new google.maps.Marker({
@@ -57,6 +60,12 @@
 						visible: true
 					});
 
+					var finanzen100_marker = new google.maps.Marker({
+						map: theMap,
+						draggable: false,
+						position: new google.maps.LatLng(50.903933, 6.933783),
+						visible: true
+					});
 		       var dingfabrikBoxText = document.createElement("div");
 		       dingfabrikBoxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
 				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
@@ -70,6 +79,7 @@
 
 				'border-radius: 5px;' + 
 				'border: 1px solid #000000;';
+
 		       var railsloveBoxText = document.createElement("div");
 		       railsloveBoxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
 				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
@@ -84,8 +94,23 @@
 				'border-radius: 5px;' + 
 				'border: 1px solid #000000;';
 
+		       var finanzen100BoxText = document.createElement("div");
+		       finanzen100BoxText.style.cssText = "margin-top: 8px; padding: 20px; overflow: hidden; color: #FFFFFF; font-weight: bold; height: 97px;" +
+				'background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);' + 
+				'background: -moz-linear-gradient(top,  rgba(40,40,40,0.9) 0%, rgba(0,0,0,0.9) 100%);' +
+				'background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40,40,40,0.8)), color-stop(100%,rgba(0,0,0,0.9)));' +
+				'background: -webkit-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: -o-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: -ms-linear-gradient(top,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'background: linear-gradient(to bottom,  rgba(40,40,40,0.9) 0%,rgba(0,0,0,0.9) 100%);' +
+				'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#cc282828\', endColorstr=\'#cc000000\',GradientType=0 );' +
+
+				'border-radius: 5px;' + 
+				'border: 1px solid #000000;';				
+
 		        railsloveBoxText.innerHTML = railsloveContentString;
 		        dingfabrikBoxText.innerHTML = dingfabrikContentString;
+		        finanzen100BoxText.innerHTML = finanzen100ContentString;
 
 		        var dingfabrikOptions = {
 		                 content: dingfabrikBoxText
@@ -121,18 +146,45 @@
 		                ,enableEventPropagation: false
 		        };
 		
+		        var finanzen100Options = {
+		                 content: finanzen100BoxText
+		                ,disableAutoPan: false
+		                ,maxWidth: 0
+		                ,pixelOffset: new google.maps.Size(-140, 0)
+		                ,zIndex: null
+		                ,boxStyle: {
+		                	width: "340px"
+		                 }
+		                ,closeBoxMargin: "10px 2px 2px 2px"
+		                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+		                ,infoBoxClearance: new google.maps.Size(1, 1)
+		                ,isHidden: false
+		                ,pane: "floatPane"
+		                ,enableEventPropagation: false
+		        };
+
 		        var railsloveIb = new InfoBox(railsloveOptions);
 		        
 		        var dingfabrikIb = new InfoBox(dingfabrikOptions);
 
+		        var finanzen100Ib = new InfoBox(finanzen100Options);
+
 				google.maps.event.addListener(railslove_marker, 'click', function() {
 				  railsloveIb.open(theMap,railslove_marker);
 				  dingfabrikIb.close();
+				  finanzen100Ib.close();
 				});
 
 				google.maps.event.addListener(dingfabrik_marker, 'click', function() {
 				  dingfabrikIb.open(theMap,dingfabrik_marker);
 				  railsloveIb.close();
+				  finanzen100Ib.close();
+				});
+
+				google.maps.event.addListener(finanzen100_marker, 'click', function() {
+				  finanzen100Ib.open(theMap,finanzen100_marker);
+				  railsloveIb.close();
+				  dingfabrikIb.close();
 				});
 
 		  	}
@@ -216,18 +268,26 @@
 								<td>iPad 2</td>
 								<td>iOS 6.0 (10A403)</td>
 								<td><a href="http://jankus.name" title="Jan Kus">Jan Kus</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
 							<tr class="even">
+							  <td>Asus</td>
+							  <td> Transformer Pad Infinity (1920x1200)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr> 														
+							<tr class="odd">
 								<td>Apple</td>
 								<td>iPod touch 1</td>
 								<td>iOS 3.1</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="odd">
+							<tr class="even">
 								<td>Apple</td>
 								<td>iPod touch 2</td>
 								<td>iOS 4.2.1</td>
@@ -235,70 +295,158 @@
 								<td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="even">
+							<tr class="odd">
 								<td>Apple</td>
 								<td>iPod touch 4</td>
 								<td>iOS 6.0</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="odd">
+							<tr class="even">
 								<td>Apple</td>
 								<td>iPhone 5</td>
 								<td>iOS 6.0.1</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>		
-							<tr class="even">
+							<tr class="odd">
 								<td>Google</td>
 								<td>Nexus One</td>
 								<td>Android 2.3</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>												
-							<tr class="odd">
+							<tr class="even">
 								<td>HTC</td>
 								<td>Magic <em>(UK/Vodafone)</em></td>
 								<td>Android 2.1 oder 2.2 mit CyanogenMod</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
-							<tr class="even">
+							<tr class="odd">
 								<td>HTC</td>
 								<td>Sensation</td>
 								<td>Android 4.1 mit HTC Sense</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
-								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
+								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>								
 							</tr>
+							 <tr class="even">
+							  <td>HTC</td>
+							  <td>Google Nexus One (480x800)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>
+							 <tr class="odd">
+							  <td>HTC</td>
+							  <td>Desire Z (480x800)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>
+							 <tr class="even">
+							  <td>HTC</td>
+							  <td>Hero (320x480)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr> 
 							<tr class="odd">
+							  <td>LG</td>
+							  <td>P880 Optimus 4x HD (720x1280)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>							
+							<tr class="even">
 								<td>Motorola</td>
 								<td>Xoom US-version (Ohne branding)</td>
 								<td>Android 4.1</td>
 								<td><a href="https://twitter.com/jerolimov" title="Christoph Jerolimov">Christoph Jerolimov</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>
+							<tr class="odd">
+							  <td>Motorola</td>
+							  <td>Xoom (1280x800)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>
 							<tr class="even">
 								<td>Samsung</td>
 								<td>Galaxy Nexus</td>
 								<td>Android 4.2.1 (<em>Kernel</em>: 3.0.31-gd5a18e0, <em>Build number</em>: JOP40D)</td>
 								<td><a href="http://railslove.com" title="Railslove GmbH">Railslove GmbH</a></td>
-								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH / Gasmotorenfabrik Köln e.V.">Railslove GmbH / Gasmotorenfabrik Köln e.V.</a></td>
+								<td><a href="http://gasmotorenfabrik.de" title="Railslove GmbH (Bottfabrik)">Railslove GmbH (Bottfabrik)</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
 							</tr>	
 							<tr class="odd">
+							  <td>Samsung</td>
+							  <td>Google Nexus i9250 (720x1280)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>
+							 <tr class="even">
+							  <td>Samsung</td>
+							  <td>Google Nexus S i9023 (480x800)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>							        
+							  <tr class="odd">
+							  <td>Samsung</td>
+							  <td>Galaxy Tab 2 (1024x600)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr> 
+							 <tr class="even">
+							  <td>Samsung</td>
+							  <td>Galaxy Tab (1024x600)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr> 
+							<tr class="odd">
+							  <td>Samsung</td>
+							  <td>Galaxy Tab 2 (1280x800)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr> 
+							<tr class="even">
 								<td>Sony</td>
 								<td>PSP</td>
 								<td>Firmware 1.5 (Homebrew-fähig!)</td>
 								<td><a href="http://www.nodepond.com" title="Nodepond">Martin Wisniowski</a></td>
 								<td><a href="http://www.dingfabrik.de" title="Dingfabrik e.V.">Dingfabrik e.V.</a></td>
 								<td>auf Anfrage (Privatgerät) <a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
-							</tr>						
+							</tr>	
+							<tr class="odd">
+							  <td>Odys</td>
+							  <td>Next (800x600)</td>
+							  <td>n/a</td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100">Finanzen100 GmbH</a></td>
+							  <td><a href="http://www.finanzen100.de/" title="Finanzen100 GmbH">Finanzen100 GmbH</a></td>
+							  <td><a href="mailto:opendevicelab@railslove.com">[Anfragen]</a></td>
+							</tr>												
 						</tbody>
 					</table>
 				</article>
