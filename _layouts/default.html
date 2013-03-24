@@ -12,7 +12,7 @@
 	<style>
 		@media screen {
 			body {
-				background: #f2f1ed url("{% if page.bigheaderimage %}{{ page.bigheaderimage }}{% elseif %}/images/header.jpg{% endif %}") center 65px no-repeat;
+				background: #f2f1ed url("{% if page.bigheaderimage %}{{ page.bigheaderimage }}{% else %}/images/header.jpg{% endif %}") center 65px no-repeat;
 			}
 		}
 	</style>
