@@ -13,7 +13,7 @@ var _gaq = _gaq || [];
 			canvas: null,
 			markers: null,
 			map : {
-				zoom: 13,
+				zoom: 12,
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				backgroundColor: '#fff'
 			},
