@@ -1,4 +1,4 @@
-*{margin:0;padding:0}html,body{height:100%}body{font-family:"Avenir Next",sans-serif;background:#f2f1ed url("../images/header.jpg") center 65px no-repeat;color:#636363;font-size:14px}
+*{margin:0;padding:0}html,body{height:100%}body{font-family:"Avenir Next",sans-serif;color:#636363;font-size:14px}
 #wrapper{max-width:937px;margin:0 auto;padding:0 5%}#header{width:100%;height:468px;margin-bottom:31px}#header nav{float:right}#header ul{list-style:none;margin-top:26px}
 #header li{float:left;margin-left:7px}#header h1,#header h2{display:none}#content{width:100%;float:left}#about{float:left;width:100%;border-bottom:10px solid #000;margin-bottom:38px}
 #about ul{float:left;width:100%;list-style:none;margin-bottom:25px}#about li{float:left;width:31%;margin-right:3.5%}#about li:last-child{margin-right:0}
