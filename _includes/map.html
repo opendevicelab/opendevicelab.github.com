@@ -4,15 +4,13 @@
 	<div id="map-markers">
 		{% for page in site.pages %}
 		{% if page.labname %}
-		<li>
-			<div data-loc="{{ page.lablatlon }}" data-title="{{ page.labname }}">
-				<div>
-					<img class="location-icon" src="{{ page.labimage }}" alt="{{ page.labname }}"  />
-					<p class="location-address">{{ page.labname }}<br/>{{ page.labaddress }}</p>
-					<p class="location-contact">{{ page.labhomepage }}</p>
-				</div>
+		<div data-loc="{{ page.lablatlon }}" data-title="{{ page.labname }}">
+			<div>
+				<img class="location-icon" src="{{ page.labimage }}" alt="{{ page.labname }}"  />
+				<p class="location-address">{{ page.labname }}<br/>{{ page.labaddress }}</p>
+				<p class="location-contact">{{ page.labhomepage }}</p>
 			</div>
-		</li>
+		</div>
 		{% endif %}
 		{% endfor %}
 	</div>
