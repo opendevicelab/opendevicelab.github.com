@@ -9,10 +9,22 @@
 
 	<link href="http://fonts.googleapis.com/css?family=Vollkorn:400italic" rel="stylesheet" />
 	<link href="/css/layout.min.css" rel="stylesheet" media="screen" />
+	<style>
+		@media screen {
+			body {
+				background: #f2f1ed url("{% if page.bigheaderimage %}{{ page.bigheaderimage }}{% elseif %}/images/header.jpg{% endif %}") center 65px no-repeat;
+			}
+		}
+	</style>
 </head>
 <body>
 <div id="wrapper">
 <header id="header">
+	<nav style="float: left;">
+		<ul>
+			<li><a href="/">Home</a></li>
+		</ul>
+	</nav>
 	<nav>
 		<ul>
 			<li>
@@ -32,8 +44,6 @@
 			</li>
 		</ul>
 	</nav>
-	<h1>Open Device Lab Cologne</h1>
-	<h2>Test your app on mobile devices, for free!</h2>
 </header>
 <section id="content">
 
