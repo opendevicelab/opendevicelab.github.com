@@ -30,6 +30,24 @@ layout: index
 	</ul>
 </header>
 
-{% include devices.html %}
+<article id="devices">
+	<table class="footable">
+		<caption>All available devices</caption>
+		<thead>
+			<tr>
+				<th data-class="expand">Hersteller</th>
+				<th data-hide="phone">Modell</th>
+				<th>OS / Version</th>
+				<th data-hide="phone,custom">Contributor</th>
+				<th data-hide="phone,custom">Standort</th>
+				<th>verfügbar</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% include devices.html %}
+		</tbody>
+	</table>
+</article>
+
 {% include map.html %}
 {% include labs.html %}
